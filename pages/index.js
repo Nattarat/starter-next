@@ -26,17 +26,58 @@ import LayoutMain from '../components/layouts/LayoutMain'
 //     </LayoutMain>
 // )
 
+// Sample const object
+const sampleConstObject = [
+    { id: 'hello-nextjs', title: 'Hello Next.js'},
+    { id: 'learn-nextjs', title: 'Learn Next.js is awesome'},
+    { id: 'deploy-nextjs', title: 'Deploy apps with ZEIT'}
+]
+
+// Sample function object (eg. API)
+function sampleFunctionObject () {
+    return [
+        { id: 'hello-nextjs', title: 'Hello Next.js'},
+        { id: 'learn-nextjs', title: 'Learn Next.js is awesome'},
+        { id: 'deploy-nextjs', title: 'Deploy apps with ZEIT'}
+    ]
+}
+
 // #SCOPE COMPONENTS
+const TemplateLink = ({ show }) => (
+    <li key={show.id}>
+        <Link as={`/posts/${show.id}`} href={`/post?id=${show.id}`}>
+            <a>{show.name}</a>
+        </Link>
+    </li>
+)
+
+const TemplateList = ({ info }) => (
+    <li key={info.id}>
+        <span>ID: {info.id}, Title: {info.title}</span>
+    </li>
+)
+
+// #COMPLEX COMPONENTS (*Main)
 const Index = (props) => (
     <LayoutMain>
-        <h1>Batman TV Shows</h1>
+        <h1>Batman TV Shows > data from API and using "isomorphic-unfetch"</h1>
         <ul>
             {props.shows.map(({ show }) => (
-                <li key={show.id}>
-                    <Link as={`/posts/${show.id}`} href={`/post?id=${show.id}`}>
-                        <a>{show.name}</a>
-                    </Link>
-                </li>
+                <TemplateLink key={show.id} show={show} />
+            ))}
+        </ul>
+
+        <h1>Sample map data from const</h1>
+        <ul>
+            {sampleConstObject.map((info) => (
+                <TemplateList key={info.id} info={info} />
+            ))}
+        </ul>
+
+        <h1>Sample map data from function</h1>
+        <ul>
+            {sampleFunctionObject().map((info) => (
+                <TemplateList key={info.id} info={info} />
             ))}
         </ul>
     </LayoutMain>
