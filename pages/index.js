@@ -48,12 +48,26 @@ const TemplateLink = ({ show }) => (
         <Link as={`/posts/${show.id}`} href={`/post?id=${show.id}`}>
             <a>{show.name}</a>
         </Link>
+
+        {/* Style in scope can working */}
+        <style jsx>{`
+            a {
+                color: red;
+            }
+        `}</style>
     </li>
 )
 
 const TemplateList = ({ info }) => (
     <li key={info.id}>
         <span>ID: {info.id}, Title: {info.title}</span>
+
+        {/* Style in scope can working */}
+        <style jsx>{`
+            span {
+                color: green;
+            }
+        `}</style>
     </li>
 )
 
@@ -80,6 +94,33 @@ const Index = (props) => (
                 <TemplateList key={info.id} info={info} />
             ))}
         </ul>
+
+        {/*
+            Style out scope can't working
+        */}
+        <style jsx>{`
+            a {
+                color: blue;
+            }
+
+            span {
+                color: purple;
+            }
+        `}</style>
+
+        {/*
+            Global style is effect all components
+        */}
+        <style jsx global>{`
+            li {
+                background-color: #eee;
+                margin-bottom: 1px;
+            }
+
+            .notice {
+                color: orange;
+            }
+        `}</style>
     </LayoutMain>
 )
 

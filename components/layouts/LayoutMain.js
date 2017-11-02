@@ -6,7 +6,7 @@ import Header from '../../components/Header'
 const LayoutMain = (props) => (
     <div>
         <Header />
-        <p>Main layout wrapper is actived</p>
+        <p className="notice">Main layout wrapper is actived</p>
         {props.children}
     </div>
 )
