@@ -1,24 +1,52 @@
 {
-    "name": "hello-next",
+    "name": "nextjs-react-styleguidist-starter",
+    "description": "NextJS and React Style Guidist Starter",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "dev": "node server.js",
-        "start": "next start -p $PORT",
-        "heroku-postbuild": "next build"
+    "author": {
+        "name": "Nattarat Srila",
+        "url": "http://devgern.com/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/Nattarat/starter-next"
     },
     "keywords": [],
-    "author": "",
-    "license": "ISC",
+    "license": "MIT",
+    "engines": {
+        "node": ">=4"
+    },
     "dependencies": {
         "express": "^4.16.2",
         "isomorphic-unfetch": "^2.0.0",
         "next": "4.0.0-beta.2",
         "react": "^16.0.0",
-        "react-dom": "^16.0.0"
+        "react-dom": "^16.0.0",
+
+        "babel-core": "^6.25.0",
+        "babel-loader": "^7.1.1",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-react": "^6.24.1",
+        "css-loader": "^0.28.4",
+        "dog-names": "^1.0.2",
+        "lodash": "^4.17.4",
+        "polished": "^1.8.0",
+        "prop-types": "^15.5.10",
+        "react-modal": "^1.6.5",
+        "react-styleguidist": "^6.0.2",
+        "style-loader": "^0.18.2",
+        "styled-components": "^2.2.1",
+        "webpack": "^3.4.1"
     },
     "devDependencies": {
         "cross-env": "^5.1.1"
+    },
+    "main": "index.js",
+    "scripts": {
+        "dev": "node server.js",
+        "start": "next start -p $PORT",
+        "heroku-postbuild": "next build",
+        "styleguide": "styleguidist server",
+        "styleguide:build": "styleguidist build"
     }
 }

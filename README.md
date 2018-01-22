@@ -49,3 +49,22 @@ git push heroku
 ```
 heroku open
 ```
+___
+
+# React Styleguidist
+
+## Develop
+```
+npm run styleguide
+```
+
+## Build a static version
+```
+npm run styleguide:build
+```
+
+## Note for remember
+* Components สร้างจาก styled-component โดยนำไปสร้างใส่ props โดย react อีกทีหนึ่ง
+    - helpers > เก็บกลุ่มก้อนของ css
+    - mixins > เก็บ mixins ที่เขียนขึ้นเอง (ที่ไม่เขียนขึ้นเองนำมาจาก Polished.js > https://polished.js.org/docs)
+    - variables > เก็บตัวแปรที่ใช้ใน styled-component
